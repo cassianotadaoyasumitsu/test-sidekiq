@@ -1,0 +1,4 @@
+my_worker_job:
+  cron: "0 0 * * *" # Run every 1 minute
+  class: MyWorker # The name of the Sidekiq worker
+  queue: default # The queue where this job should be enqueued

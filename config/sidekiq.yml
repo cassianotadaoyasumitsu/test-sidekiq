@@ -1,0 +1,15 @@
+:concurrency: 5
+:queues:
+  - default
+  - mailers
+  - critical
+
+:redis:
+  url: redis://localhost:6379/0
+
+:scheduler:
+  :schedule:
+    my_worker_job:
+      cron: "0 0 * * *" # Run every 5 minutes
+      class: MyWorker # The name of the Sidekiq worker
+      queue: default # The queue where this job should be enqueued

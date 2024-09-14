@@ -1,0 +1,19 @@
+<h1>All Posts</h1>
+
+<div class="row">
+  <% @posts.each do |post| %>
+    <div class="col-md-4">
+      <div class="card mb-4">
+        <img class="card-img-top" src="<%= post.url_to_image %>" alt="<%= post.title %>">
+        <div class="card-body">
+          <h5 class="card-title"><%= post.title %> - <%= post.id %></h5>
+          <p class="card-text"><%= truncate(post.content, length: 200) %></p>
+          <a href="<%= post.url %>" class="btn btn-primary" target="_blank">Read more</a>
+        </div>
+        <div class="card-footer text-muted">
+          Published on <%= post.created_at.strftime("%B %d, %Y") %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
